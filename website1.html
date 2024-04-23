@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #1f2937;
+            height: 100vh;
+            width: 100%;
+        }
+
+        nav {
+            position: relative;
+            padding-top: 10px;
+            background-color: white;
+            height: 70px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav ul li:first-child {
+            margin-right: auto;
+            padding-left: 10px;
+        }
+
+        nav ul li {
+            margin-right: 150px;
+
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.1s ease;
+        }
+
+        nav ul li a:hover {
+            color: red;
+        }
+
+        .hideOnBigScreen {
+            display: none;
+        }
+
+
+        @media (max-width:800px) {
+            .hideOnMobile {
+                display: none;
+            }
+
+            .hideOnBigScreen {
+                display: flex;
+                margin-right: 20px;
+            }
+
+            .header-page h1 {
+                font-size: 1em;
+            }
+
+            .header-page {
+                display: block;
+            }
+        }
+
+        @media (max-width:1200px) {
+            nav ul li {
+                margin-right: 60px;
+            }
+        }
+        
+        
+
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100vh;
+            z-index: 999;
+            background-color: rgba(225, 225, 225, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .sidebar li {
+            width: 100%;
+            margin-left: 70px;
+            margin-bottom: 50px;
+        }
+
+        .sidebar a {
+            width: 100%;
+        }
+
+        .wrong {
+            margin-top: 40px;
+            font-size: 40px;
+        }
+
+        .header-page {
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            margin: 0;
+            color: white;
+        }
+
+        .header-page h1 {
+            font-size: 3em;
+            width: 60%;
+            margin: 60px 0;
+        }
+
+        .header-info{
+            font-size: 20px;
+            width: 80%;
+            height: 40%;
+            line-height: 1;
+        }
+
+        .header-page button {
+            margin-top: 0px;
+            width: 240px;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(61, 61, 216);
+            color: white;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .header-page button:hover {
+            background-color: rgb(1, 1, 111);
+            color: rgb(102, 97, 97);
+        }
+
+        .taxi {
+            width: 30vw;
+        }
+
+        .taxi-seciton {
+            width: 100%;
+        }
+        @media (max-width:1200px){
+            .header-page h1 {
+                font-size: 2.5em;
+                margin: 40px 0;
+            }
+
+            .header-info {
+                font-size: 16px;
+            }
+            .details h4{
+                font-size: 3em;
+            }
+        }
+
+        @media (max-width:800px){
+            .header-page{
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+            .header-page h1 {
+                width: 100%;
+                font-size: 2em;
+                margin: 40px 0;
+                text-align: center;
+                
+            }
+
+            .header-info {
+                width: 100%;
+                font-size: 14px;
+                text-align: center;
+                padding: 0 0;
+            }
+            .header-page button{
+                width: 140px;
+                height: 40px;
+                font-size: 16px;
+                margin-top: 20px;
+                margin-left: 30%;
+            }
+        }
+
+        .details {
+            height: 100%;
+            margin-bottom: 100px;
+        }
+       
+        .details h4 {
+            font-size: 4em;
+            font-weight: 900;
+            color: #1f1f1f;
+            text-align: center;
+            padding: 80px;
+            width: 100%;
+        }
+
+        .grid-container {
+            display: flex;
+            justify-content: space-around;  
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            height: 100%;
+        }
+
+        .grid-container div {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 240px;
+        }
+
+        .grid-container div p {
+            margin-top: 40px;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+        }
+
+        .grid-container div img {
+            border: 3px solid blue;
+            border-style: dashed;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        @media (max-width:1200px){
+        .details h4{
+                font-size: 3em;
+                padding: 50px;
+            }
+        }
+        @media (max-width:800px){
+        .details h4{
+                font-size: 2em;
+                padding: 30px;
+            }
+        }
+        
+
+        .img-info{
+            word-wrap: break-word;
+        }
+
+        .blog {
+            height: 100%;
+            width: 100%;
+            padding: 60px 40px;
+            background-color: #e5e7eb;
+        }
+
+        .blog-content {
+            padding: 100px;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+            font-style: italic;
+        }
+
+        .blog-writer {
+            text-align: end;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 40px;
+        }
+        @media (max-width:1200px) {
+            .blog-content {
+                font-size: 1.5em;
+                padding: 50px 30px;
+            }
+            .blog-writer {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:800px){
+            .blog-content{
+                font-size: 1em;
+                padding: 20px 10px;
+            }
+            .blog-writer {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            
+        }
+
+        footer {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sign-up {
+            margin: 200px 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #3882f6;
+            padding: 50px 0;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .sign-up h3 {
+            font-size: 2em;
+        }
+
+        .sign-up button {
+            width: 160px;
+            height: 50px;
+            color: white;
+            background-color: #3882f6;
+            border: 3px solid white;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sign-up button:hover {
+            color: #3882f6;
+            background-color: white;
+            border: none;
+        }
+        @media (max-width:800px){
+            .sign-up {
+                margin: 40px 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .sign-up h3 {
+                font-size: 1.5em;
+            }
+            .sign-up p{
+                font-size: 12px;
+                padding-bottom: 20px;
+            }
+            .sign-up button {
+                width: 100px;
+                height: 40px;
+            }
+        }
+
+
+        .Copyright {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            bottom: 0;
+            background-color: #1f2937;
+            color: white;
+            width: 100%;
+            height: 100px;
+        }
+
+        .Copyright a {
+            color: white;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li class="wrong" onclick="hideSidebar()"><a href="#"><i class="fa-regular fa-circle-xmark"></i></a>
+            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Why Us?</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Sign up</a></li>
+        </ul>
+        <ul>
+            <li><a href="#"><img src="logo.png" height="40px" width="60px"> Urban Express</a></li>
+            <li class="hideOnMobile"><a href="#">Home</a></li>
+            <li class="hideOnMobile"><a href="#">Why Us?</a></li>
+            <li class="hideOnMobile"><a href="#">About Us</a></li>
+            <li class="hideOnMobile"><a href="#">Sign up</a></li>
+            <li class="hideOnBigScreen" onclick="showSidebar()"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+    <div class="header">
+        <div class="header-page">
+            <div>
+                <h1>Welcome to Urban Express</h1>
+                <div class="header-info">Looking for a reliable ride? Hop into our top-notch taxis for a seamless travel experience. Our
+                    professional drivers and comfortable vehicles are ready to take you where you need to go, anytime,
+                    anywhere. Your journey with us is safe, swift, and satisfying. Book your ride today!</div>
+                <button>Sign up</button>
+            </div>
+            <div class="taxi-section"><img class="taxi" src="taxi.png"></div>
+        </div>
+    </div>
+    
+    <section class="details">
+        <h4>WE are Better.</h4>
+        <div class="grid-container">
+            <div>
+                <img src="calltaxi.png" height="240px" width="240px">
+                <div class="img-info">Call taxi even at weak signals.</div>
+            </div>
+            <div>
+                <img src="24hours.png" height="240px" width="240px">
+                <div class="img-info">24 hour service available.</div>
+            </div>
+            <div>
+                <img src="certifieddriver.png" height="240px" width="240px">
+                <div class="img-info">Certified driver with years of experience.</div>
+            </div>
+            <div>
+                <img src="highqualityvehicle.png" height="240px" width="240px">
+                <div class="img-info">High quality vehicle guarantdded for excellent ride.</d>
+            </div>
+        </div>
+    </section>
+    <section class="blog">
+        <div class="blog-content">
+            Creating a reliable and efficient transportation solution has always been my passion. Our commitment is to
+            provide safe, comfortable, and timely rides to our customers. We prioritize customer satisfaction above all
+            else and continuously strive to innovate and improve our services. Thank you for trusting us with your
+            travel needs.
+        </div>
+        <div class="blog-writer">-Bruce Wayne(Founder & CEO)</div>
+    </section>
+    <footer>
+        <div class="sign-up">
+            <div class="sign-up-container">
+                <h3>Call to Action! It's Time</h3>
+                <p>Join now for a seamless and convenient travel experience!</p>
+            </div>
+            <button>Sign Up</button>
+        </div>
+        <div class="Copyright">
+            <div>
+                Copyright©2024:Designed by Sameer
+            </div>
+            <div>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script>
+        function showSidebar() {
+            const show = document.querySelector(".sidebar")
+            show.style.display = 'flex';
+        }
+
+        function hideSidebar() {
+            const show = document.querySelector(".sidebar")
+            show.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
